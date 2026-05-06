@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>صيانة غسالات</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+  <style>
+    :root{--primary:#0a3320;--accent:#1a7a3c;--white:#fff;--light:#f0f6ff;--gray:#666;--border:#e0ecfa}
+    *{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+    body{font-family:'Cairo',sans-serif;color:#1a1a2e;background:#fff;overflow-x:hidden}
+    nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(10,35,66,0.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(26,122,60,0.15);padding:0 5%;display:flex;align-items:center;justify-content:space-between;height:68px}
+    .nav-logo{color:#fff;font-family:'Tajawal',sans-serif;font-size:1.1rem;font-weight:900;display:flex;align-items:center;gap:10px}
+    .nav-logo span{color:#4caf73}
+    .nav-links{display:flex;gap:26px;list-style:none}
+    .nav-links a{color:rgba(255,255,255,0.82);text-decoration:none;font-size:0.9rem;font-weight:600;transition:color 0.2s}
+    .nav-links a:hover{color:#4caf73}
+    .nav-cta{background:#1a7a3c;color:#fff;padding:9px 22px;border-radius:28px;text-decoration:none;font-weight:700;font-size:0.9rem;display:flex;align-items:center;gap:8px;transition:all 0.2s}
+    .nav-cta:hover{background:#15622f;transform:scale(1.04)}
+    .hero{min-height:100vh;background:linear-gradient(135deg,#061a0e 0%,#0a3d20 55%,#1a7a3c 100%);display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 5% 60px;position:relative;overflow:hidden}
+    .hbc{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(26,122,60,0.12) 0%,transparent 70%);animation:breathe 5s ease-in-out infinite}
+    .hbc:nth-child(1){width:600px;height:600px;top:-150px;left:-150px}
+    .hbc:nth-child(2){width:400px;height:400px;bottom:-100px;right:-100px;animation-delay:2.5s}
+    @keyframes breathe{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.2);opacity:1}}
+    .hero-content{position:relative;z-index:2;max-width:750px}
+    .hero-tag{display:inline-block;background:rgba(26,122,60,0.18);border:1px solid rgba(26,122,60,0.35);color:#a8d5b5;padding:6px 18px;border-radius:20px;font-size:0.85rem;font-weight:600;margin-bottom:24px}
+    .hero-icon{font-size:88px;margin-bottom:20px;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 8px 20px rgba(26,122,60,0.45))}
+    @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+    .hero h1{font-family:'Tajawal',sans-serif;font-size:clamp(2.2rem,5.5vw,4rem);font-weight:900;color:#fff;line-height:1.25;margin-bottom:20px}
+    .hero h1 .blue{color:#4caf73}
+    .hero-desc{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,0.78);line-height:1.85;margin-bottom:42px;max-width:600px;margin-inline:auto}
+    .hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+    .btn-primary{background:#1a7a3c;color:#fff;padding:15px 38px;border-radius:50px;text-decoration:none;font-size:1.05rem;font-weight:700;display:flex;align-items:center;gap:10px;box-shadow:0 6px 28px rgba(26,122,60,0.45);transition:all 0.25s}
+    .btn-primary:hover{background:#15622f;transform:translateY(-3px);box-shadow:0 10px 36px rgba(26,122,60,0.55)}
+    .btn-ghost{background:transparent;color:#fff;padding:15px 38px;border-radius:50px;text-decoration:none;font-size:1.05rem;font-weight:700;border:2px solid rgba(255,255,255,0.4);display:flex;align-items:center;gap:10px;transition:all 0.25s}
+    .btn-ghost:hover{border-color:#fff;background:rgba(255,255,255,0.08)}
+    .hero-badges{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:52px}
+    .badge{background:rgba(255,255,255,0.09);border:1px solid rgba(255,255,255,0.18);color:rgba(255,255,255,0.9);padding:9px 20px;border-radius:30px;font-size:0.88rem;font-weight:600;backdrop-filter:blur(6px);display:flex;align-items:center;gap:7px}
+    .stats{background:#fff;padding:60px 5%;border-bottom:1px solid var(--border)}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0;max-width:900px;margin:0 auto}
+    .stat{text-align:center;padding:28px 16px;border-left:1px solid var(--border)}
+    .stat:last-child{border-left:none}
+    .stat-num{font-family:'Tajawal',sans-serif;font-size:2.6rem;font-weight:900;color:#1a7a3c;line-height:1;margin-bottom:8px}
+    .stat-label{font-size:0.95rem;color:var(--gray);font-weight:600}
+    section{padding:90px 5%}
+    .sec-head{text-align:center;margin-bottom:56px}
+    .sec-tag{display:inline-block;background:#e8f5ec;color:var(--accent);padding:5px 16px;border-radius:20px;font-size:0.82rem;font-weight:700;margin-bottom:14px}
+    .sec-head h2{font-family:'Tajawal',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--primary);margin-bottom:12px}
+    .sec-head p{color:var(--gray);font-size:1.05rem;max-width:520px;margin:0 auto;line-height:1.85}
+    .divider{width:56px;height:4px;background:linear-gradient(90deg,var(--accent),#4caf73);border-radius:4px;margin:18px auto 0}
+    .services{background:var(--light)}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px;max-width:1150px;margin:0 auto}
+    .service-card{background:#fff;border-radius:22px;padding:40px 32px;text-align:center;box-shadow:0 4px 24px rgba(10,35,66,0.07);border:1.5px solid var(--border);transition:all 0.3s;position:relative;overflow:hidden}
+    .service-card:hover{transform:translateY(-10px);box-shadow:0 20px 52px rgba(10,35,66,0.14);border-color:rgba(26,122,60,0.3)}
+    .sci{width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#e8f5ec,#c8e6d0);display:flex;align-items:center;justify-content:center;font-size:34px;margin:0 auto 22px;box-shadow:0 4px 16px rgba(26,122,60,0.18)}
+    .service-card h3{font-size:1.18rem;font-weight:700;color:var(--primary);margin-bottom:12px}
+    .service-card p{color:var(--gray);line-height:1.82;font-size:0.95rem}
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;max-width:1050px;margin:0 auto}
+    .why-card{background:var(--light);border-radius:18px;padding:32px 26px;text-align:center;border:1.5px solid var(--border);transition:all 0.3s}
+    .why-card:hover{background:#fff;box-shadow:0 8px 32px rgba(10,35,66,0.1);transform:translateY(-4px)}
+    .why-icon{font-size:46px;margin-bottom:16px}
+    .why-card h3{font-size:1.08rem;font-weight:700;color:var(--primary);margin-bottom:10px}
+    .why-card p{color:var(--gray);font-size:0.92rem;line-height:1.78}
+    .testimonials{background:var(--light)}
+    .tests-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:1050px;margin:0 auto}
+    .test-card{background:#fff;border-radius:20px;padding:32px 28px;box-shadow:0 4px 20px rgba(10,35,66,0.07);border:1.5px solid var(--border);transition:transform 0.3s,box-shadow 0.3s}
+    .test-card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(10,35,66,0.12)}
+    .stars{color:#f5a623;font-size:1.1rem;margin-bottom:14px}
+    .test-text{color:#444;line-height:1.85;font-size:0.96rem;margin-bottom:20px;font-style:italic}
+    .test-author{display:flex;align-items:center;gap:12px}
+    .test-avatar{width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#0a3320);display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.1rem;font-weight:700}
+    .test-name{font-weight:700;color:var(--primary);font-size:0.95rem}
+    .test-city{color:var(--gray);font-size:0.82rem}
+    .faq-list{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+    .faq-item{background:var(--light);border-radius:14px;border:1.5px solid var(--border);overflow:hidden}
+    .faq-q{padding:20px 26px;font-weight:700;font-size:1rem;color:var(--primary);cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:background 0.2s;user-select:none}
+    .faq-q:hover{background:#e8f5ec}
+    .faq-q .arrow{font-size:0.85rem;transition:transform 0.3s;color:var(--accent)}
+    .faq-a{max-height:0;overflow:hidden;padding:0 26px;color:var(--gray);line-height:1.85;font-size:0.96rem;transition:max-height 0.35s ease,padding 0.3s}
+    .faq-item.open .faq-a{max-height:200px;padding:0 26px 20px}
+    .faq-item.open .arrow{transform:rotate(180deg)}
+    .brands{background:var(--light)}
+    .brands-wrap{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:950px;margin:0 auto}
+    .brand-pill{background:#fff;border:1.5px solid var(--border);color:var(--primary);padding:12px 30px;border-radius:40px;font-weight:700;font-size:1rem;transition:all 0.22s;cursor:default}
+    .brand-pill:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:scale(1.06)}
+    .contact{background:#fff}
+    .contact-box{max-width:800px;margin:0 auto;background:linear-gradient(135deg,var(--primary) 0%,#1a7a3c 100%);border-radius:28px;padding:64px 48px;text-align:center;color:#fff;box-shadow:0 20px 72px rgba(10,35,66,0.24);position:relative;overflow:hidden}
+    .contact-box h2{font-family:'Tajawal',sans-serif;font-size:clamp(1.7rem,4vw,2.6rem);font-weight:900;margin-bottom:14px}
+    .contact-box p{opacity:0.86;font-size:1.1rem;line-height:1.85;margin-bottom:38px}
+    .contact-phone{display:inline-flex;align-items:center;gap:14px;background:#fff;color:var(--primary);padding:18px 48px;border-radius:50px;text-decoration:none;font-size:1.4rem;font-weight:900;font-family:'Tajawal',sans-serif;box-shadow:0 6px 28px rgba(0,0,0,0.18);transition:transform 0.25s,box-shadow 0.25s}
+    .contact-phone:hover{transform:scale(1.06);box-shadow:0 12px 40px rgba(0,0,0,0.25)}
+    .contact-wa{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,0.82);font-size:1rem;text-decoration:none;margin-top:20px;transition:color 0.2s}
+    .contact-wa:hover{color:#fff}
+    footer{background:#06192e;color:rgba(255,255,255,0.65);text-align:center;padding:32px 5%}
+    footer a{color:#4caf73;text-decoration:none}
+    .footer-links{display:flex;gap:24px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+    .footer-links a{color:rgba(255,255,255,0.6);text-decoration:none;font-size:0.9rem;transition:color 0.2s}
+    .footer-links a:hover{color:#4caf73}
+    .footer-copy{font-size:0.88rem}
+    .footer-copy span{color:#4caf73}
+    .wa-float{position:fixed;bottom:28px;left:28px;background:#25d366;color:#fff;width:62px;height:62px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;z-index:9999;box-shadow:0 4px 24px rgba(26,122,60,0.5);animation:waPop 2.2s ease-in-out infinite;transition:transform 0.2s}
+    .wa-float:hover{transform:scale(1.12)}
+    @keyframes waPop{0%,100%{box-shadow:0 4px 24px rgba(26,122,60,0.5)}50%{box-shadow:0 4px 44px rgba(26,122,60,0.82)}}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px}
+    .hamburger span{width:24px;height:2px;background:#fff;border-radius:2px;transition:all 0.3s}
+    .mobile-menu{display:none;position:fixed;top:68px;right:0;left:0;background:rgba(10,35,66,0.98);backdrop-filter:blur(12px);z-index:999;padding:20px 5%;flex-direction:column;gap:0;border-bottom:1px solid rgba(26,122,60,0.2)}
+    .mobile-menu a{color:rgba(255,255,255,0.85);text-decoration:none;font-size:1rem;font-weight:600;padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.07);display:block}
+    .mobile-menu a:last-child{border-bottom:none}
+    .mobile-menu.open{display:flex}
+    .nav-mobile-cta{display:none;background:#1a7a3c;color:#fff;padding:9px 18px;border-radius:24px;text-decoration:none;font-weight:700;font-size:0.88rem;align-items:center;gap:6px;white-space:nowrap}
+    @media(max-width:768px){
+      .nav-links,.nav-cta{display:none!important}
+      .hamburger{display:flex!important}
+      .nav-mobile-cta{display:flex!important}
+      .stats-grid{grid-template-columns:1fr 1fr}
+      .stat{border-left:none;border-bottom:1px solid var(--border)}
+      .hero-btns{flex-direction:column;align-items:center}
+      .contact-box{padding:44px 24px}
+      section{padding:60px 5%}
+      .services-grid,.tests-grid{grid-template-columns:1fr}
+      .why-grid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">🔧 <span>صيانة غسالات</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">خدماتنا</a></li>
+    <li><a href="#why">لماذا نحن</a></li>
+    <li><a href="#testimonials">آراء العملاء</a></li>
+    <li><a href="#faq">أسئلة شائعة</a></li>
+    <li><a href="#contact">تواصل معنا</a></li>
+  </ul>
+  <a href="tel:00966534138927" class="nav-cta">📞 اتصل الآن</a>
+  <div style="display:flex;align-items:center;gap:12px">
+    <a href="tel:00966534138927" class="nav-mobile-cta">📞 اتصل الآن</a>
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services" onclick="closeMenu()">خدماتنا</a>
+  <a href="#why" onclick="closeMenu()">لماذا نحن</a>
+  <a href="#testimonials" onclick="closeMenu()">آراء العملاء</a>
+  <a href="#faq" onclick="closeMenu()">أسئلة شائعة</a>
+  <a href="#contact" onclick="closeMenu()">تواصل معنا</a>
+</div>
+
+<section class="hero">
+  <div class="hbc"></div>
+  <div class="hbc"></div>
+  <div class="hero-content">
+    <div class="hero-tag">⭐ الأول في للصيانة المنزلية</div>
+    <div class="hero-icon">🫧</div>
+    <h1>صيانة <span class="blue">غسالات أوتوماتيك</span><br/>منزلية احترافية</h1>
+    <p class="hero-desc">نصلح غسالتك في أسرع وقت وبأفضل جودة — فنيون متخصصون يصلون إليك في جميع أحياء على مدار الساعة</p>
+    <div class="hero-btns">
+      <a href="tel:00966534138927" class="btn-primary">📞 اتصل بنا الآن</a>
+      <a href="https://wa.me/966534138927" class="btn-ghost">💬 واتساب</a>
+    </div>
+    <div class="hero-badges">
+      <div class="badge">✅ ضمان على الإصلاح</div>
+      <div class="badge">🚀 نفس اليوم</div>
+      <div class="badge">🏠 خدمة منزلية</div>
+      <div class="badge">⏰ 24 / 7</div>
+    </div>
+  </div>
+</section>
+
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat"><div class="stat-num">+500</div><div class="stat-label">عميل سعيد</div></div>
+    <div class="stat"><div class="stat-num">+10</div><div class="stat-label">سنوات خبرة</div></div>
+    <div class="stat"><div class="stat-num">28+</div><div class="stat-label">حي نخدمه</div></div>
+    <div class="stat"><div class="stat-num">100%</div><div class="stat-label">رضا العملاء</div></div>
+  </div>
+</div>
+
+<section class="services" id="services">
+  <div class="sec-head">
+    <div class="sec-tag">🔧 خدماتنا</div>
+    <h2>خدماتنا المميزة</h2>
+    <p>نقدم حلولاً شاملة لصيانة الغسالات الأوتوماتيك المنزلية باحترافية عالية وضمان كامل</p>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <div class="service-card"><div class="sci">💧</div><h3>إصلاح تسريب المياه</h3><p>تشخيص ومعالجة جميع مشاكل تسرب المياه من الغسالة بسرعة وكفاءة وضمان شامل</p></div>
+    <div class="service-card"><div class="sci">⚡</div><h3>أعطال كهربائية</h3><p>إصلاح الأعطال الكهربائية وتغيير القطع التالفة بقطع أصلية مضمونة لجميع الماركات</p></div>
+    <div class="service-card"><div class="sci">🔄</div><h3>تعطل الدوران</h3><p>إصلاح مشاكل الحوض والمحرك وجميع أجزاء الدوران والطرد المركزي في الغسالة</p></div>
+    <div class="service-card"><div class="sci">🎛️</div><h3>لوحة التحكم الإلكترونية</h3><p>إصلاح وبرمجة لوحات التحكم الإلكترونية لجميع ماركات الغسالات وموديلاتها</p></div>
+    <div class="service-card"><div class="sci">🔧</div><h3>صيانة دورية</h3><p>خدمات الصيانة الدورية والتنظيف العميق لإطالة عمر غسالتك وتحسين أدائها</p></div>
+    <div class="service-card"><div class="sci">🛠️</div><h3>تغيير قطع الغيار</h3><p>توفير وتركيب قطع الغيار الأصلية المعتمدة لجميع أنواع وموديلات الغسالات</p></div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="sec-head">
+    <div class="sec-tag">⭐ مميزاتنا</div>
+    <h2>لماذا تختارنا؟</h2>
+    <p>نحرص دائماً على تقديم أفضل تجربة صيانة لعملائنا في بكل احترافية وشفافية</p>
+    <div class="divider"></div>
+  </div>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-icon">👨‍🔧</div><h3>فنيون معتمدون</h3><p>فريق من الفنيين المتخصصين المعتمدين ذوي الخبرة العالية في جميع أنواع الغسالات</p></div>
+    <div class="why-card"><div class="why-icon">🚀</div><h3>استجابة سريعة</h3><p>نصل إليك في أسرع وقت ونصلح غسالتك نفس اليوم دون تأخير أو انتظار طويل</p></div>
+    <div class="why-card"><div class="why-icon">💰</div><h3>أسعار شفافة</h3><p>أسعار تنافسية وشفافة بدون رسوم خفية — تعرف السعر قبل البدء بالإصلاح</p></div>
+    <div class="why-card"><div class="why-icon">🏅</div><h3>ضمان الجودة</h3><p>نضمن جميع أعمال الصيانة وقطع الغيار المستخدمة بضمان كتابي موثق</p></div>
+    <div class="why-card"><div class="why-icon">🗺️</div><h3>تغطية واسعة</h3><p>نخدم أكثر من 28 حياً في ونصل إليك في أي مكان داخل المدينة</p></div>
+    <div class="why-card"><div class="why-icon">⏰</div><h3>خدمة 24 ساعة</h3><p>متاحون على مدار الساعة 7 أيام في الأسبوع في أي وقت تحتاجنا</p></div>
+  </div>
+</section>
+
+<section class="testimonials" id="testimonials">
+  <div class="sec-head">
+    <div class="sec-tag">💬 آراء العملاء</div>
+    <h2>ماذا يقول عملاؤنا؟</h2>
+    <p>آراء حقيقية من عملائنا الكرام في بعد تجربة خدماتنا</p>
+    <div class="divider"></div>
+  </div>
+  <div class="tests-grid">
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"خدمة ممتازة جداً، الفني وصل في أقل من ساعة وأصلح الغسالة باحترافية. أسعار معقولة ومناسبة. أنصح الجميع بهم!"</p>
+      <div class="test-author"><div class="test-avatar">أ</div><div><div class="test-name">أحمد الغامدي</div><div class="test-city">حي النزهة </div></div></div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"تجربة رائعة، الفني خبير وشرح لي المشكلة بالتفصيل قبل الإصلاح. الغسالة شغالة زي الجديدة الآن. شكراً جزيلاً."</p>
+      <div class="test-author"><div class="test-avatar">م</div><div><div class="test-name">محمد العنزي</div><div class="test-city">حي الملز </div></div></div>
+    </div>
+    <div class="test-card">
+      <div class="stars">★★★★★</div>
+      <p class="test-text">"تواصلت معهم الساعة 10 مساءً وجاء الفني خلال نصف ساعة وأصلح المشكلة. خدمة 24 ساعة حقيقية فعلاً!"</p>
+      <div class="test-author"><div class="test-avatar">ن</div><div><div class="test-name">نورة السبيعي</div><div class="test-city">حي الربوة </div></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="sec-head">
+    <div class="sec-tag">❓ أسئلة شائعة</div>
+    <h2>أسئلة شائعة</h2>
+    <p>إجابات على أكثر الأسئلة شيوعاً حول خدماتنا</p>
+    <div class="divider"></div>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">كم يستغرق وقت الوصول إليّ؟<span class="arrow">▼</span></div>
+      <div class="faq-a">نسعى للوصول إليك في غضون 30 دقيقة إلى ساعة واحدة حسب موقعك. نغطي أكثر من 28 حياً في.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">هل هناك ضمان على الإصلاح؟<span class="arrow">▼</span></div>
+      <div class="faq-a">نعم، نقدم ضماناً كتابياً موثقاً على جميع أعمال الصيانة وقطع الغيار. الضمان يتراوح بين 3 إلى 6 أشهر حسب نوع الإصلاح.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">ما هي الماركات التي تصلحونها؟<span class="arrow">▼</span></div>
+      <div class="faq-a">نصلح جميع الماركات: سامسونج، LG، توشيبا، وايت ويل، ويرلبول، زانوسي، بوش، هايسنس، هاير، شارب، باناسونيك وغيرها.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">كيف أعرف تكلفة الإصلاح مسبقاً؟<span class="arrow">▼</span></div>
+      <div class="faq-a">نوفر تشخيصاً مجانياً ونخبرك بالتكلفة قبل البدء. لا توجد رسوم خفية — أنت توافق على السعر قبل الإصلاح.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="toggleFaq(this)">هل تعملون في الإجازات والأعياد؟<span class="arrow">▼</span></div>
+      <div class="faq-a">نعم، نعمل على مدار الساعة 7 أيام في الأسبوع بما في ذلك الإجازات والأعياد. خدمتنا متاحة دائماً.</div>
+    </div>
+  </div>
+</section>
+
+<section class="brands">
+  <div class="sec-head">
+    <div class="sec-tag">🏷️ الماركات</div>
+    <h2>الماركات التي نصلحها</h2>
+    <p>متخصصون في صيانة جميع ماركات الغسالات العالمية والمحلية</p>
+    <div class="divider"></div>
+  </div>
+  <div class="brands-wrap">
+    <span class="brand-pill">سامسونج</span>
+    <span class="brand-pill">LG</span>
+    <span class="brand-pill">توشيبا</span>
+    <span class="brand-pill">وايت ويل</span>
+    <span class="brand-pill">ويرلبول</span>
+    <span class="brand-pill">زانوسي</span>
+    <span class="brand-pill">بوش</span>
+    <span class="brand-pill">هايسنس</span>
+    <span class="brand-pill">هاير</span>
+    <span class="brand-pill">باناسونيك</span>
+    <span class="brand-pill">ميديا</span>
+    <span class="brand-pill">شارب</span>
+    <span class="brand-pill">أريستون</span>
+    <span class="brand-pill">إليكترولوكس</span>
+  </div>
+</section>
+
+<section style="padding:0;background:#fff">
+  <div style="max-width:900px;margin:0 auto;padding:60px 5% 0">
+    <div class="sec-head">
+      <div class="sec-tag">📍 موقعنا</div>
+      <h2 style="font-family:'Tajawal',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--primary);margin-bottom:12px">موقعنا على الخريطة</h2>
+      <div class="divider"></div>
+    </div>
+  </div>
+  <div style="text-align:center;padding:20px 5% 60px">
+    <a href="https://maps.app.goo.gl/5hjNpuEoD2SbHGWA7" target="_blank"
+      style="display:inline-flex;align-items:center;gap:14px;background:linear-gradient(135deg,#0a3320,#1a7a3c);color:#fff;padding:18px 44px;border-radius:50px;text-decoration:none;font-size:1.15rem;font-weight:700;font-family:'Tajawal',sans-serif;box-shadow:0 6px 28px rgba(26,122,60,0.35);transition:all 0.25s"
+      onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      عرض الموقع على الخريطة
+    </a>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-box">
+    <h2>هل غسالتك تعطلت؟ 🔧</h2>
+    <p>فنيون متخصصون في جميع أنحاء — نصل إليك في أسرع وقت بضمان كامل</p>
+    <div style="display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+      <a href="tel:00966534138927" class="contact-phone" style="font-size:1.1rem;padding:16px 36px;gap:12px">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.64 13a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.55 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0 1 22 16.92z"/></svg>
+        اتصل الآن
+      </a>
+      <a href="https://wa.me/966534138927" style="display:inline-flex;align-items:center;gap:12px;background:#25d366;color:#fff;padding:16px 36px;border-radius:50px;text-decoration:none;font-size:1.1rem;font-weight:700;font-family:'Tajawal',sans-serif;box-shadow:0 6px 28px rgba(26,122,60,0.4);transition:all 0.25s" onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <svg width="22" height="22" viewBox="0 0 32 32" fill="white"><path d="M16 2C8.28 2 2 8.28 2 16c0 2.44.65 4.73 1.78 6.72L2 30l7.47-1.75A13.93 13.93 0 0 0 16 30c7.72 0 14-6.28 14-14S23.72 2 16 2zm0 25.5c-2.18 0-4.22-.6-5.97-1.64l-.43-.25-4.43 1.04 1.06-4.3-.28-.45A11.44 11.44 0 0 1 4.5 16C4.5 9.61 9.61 4.5 16 4.5S27.5 9.61 27.5 16 22.39 27.5 16 27.5zm6.28-8.56c-.34-.17-2.02-1-2.34-1.11-.32-.11-.55-.17-.78.17-.23.34-.9 1.11-1.1 1.34-.2.23-.4.26-.74.09-.34-.17-1.44-.53-2.74-1.69-1.01-.9-1.7-2.01-1.9-2.35-.2-.34-.02-.52.15-.69.15-.15.34-.4.51-.6.17-.2.23-.34.34-.57.11-.23.06-.43-.03-.6-.09-.17-.78-1.88-1.07-2.57-.28-.67-.57-.58-.78-.59h-.66c-.23 0-.6.09-.91.43-.32.34-1.21 1.18-1.21 2.88s1.24 3.34 1.41 3.57c.17.23 2.44 3.72 5.91 5.22.83.36 1.47.57 1.97.73.83.26 1.58.22 2.18.13.66-.1 2.02-.83 2.31-1.62.28-.8.28-1.48.2-1.62-.09-.14-.32-.23-.66-.4z"/></svg>
+        واتساب
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="#services">خدماتنا</a>
+    <a href="#why">لماذا نحن</a>
+    <a href="#testimonials">آراء العملاء</a>
+    <a href="#faq">أسئلة شائعة</a>
+    <a href="#contact">تواصل معنا</a>
+  </div>
+  <p class="footer-copy">جميع الحقوق محفوظة © 2025 — <span>صيانة غسالات أوتوماتيك منزلية </span><br/>
+  📞 <a href="tel:00966534138927">00966534138927</a> | خدمة على مدار الساعة</p>
+</footer>
+
+<a href="https://wa.me/966534138927" class="wa-float" title="واتساب">💬</a>
+
+<script>
+function toggleMenu(btn){
+  const menu=document.getElementById('mobileMenu');
+  menu.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobileMenu').classList.remove('open');
+}
+function toggleFaq(el){
+  const item=el.parentElement;
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!isOpen)item.classList.add('open');
+}
+</script>
+</body>
+</html>
